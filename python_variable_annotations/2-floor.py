@@ -2,14 +2,16 @@
 """Module that provides a type-annotated floor function.
 """
 
+import math
 
-def floor(n: float) -> float:
+
+def floor(n: float) -> int:
     """Return the floor of a float.
 
     Args:
         n (float): The number to floor.
 
     Returns:
-        float: The largest integer value less than or equal to n.
+        int: The largest integer less than or equal to n.
     """
-    return n
+    return math.floor(n)
