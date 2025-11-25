@@ -3,12 +3,11 @@ import time
 import asyncio
 
 wait_n = __import__('1-concurrent_coroutines').wait_n
+"""Mesure le temps moyen d'exécution de la coroutine wait_n."""
 
 
 def measure_time(n, max_delay):
     """
-    Mesure le temps moyen d'exécution de la coroutine wait_n.
-
     Cette fonction :
     - démarre un chronomètre,
     - exécute wait_n(n, max_delay) de manière synchrone grâce à asyncio.run(),
