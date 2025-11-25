@@ -21,8 +21,8 @@ def measure_time(n, max_delay):
     Returns:
         float: Temps moyen d'exécution par coroutine.
     """
-    start = time.time()
+    start = time.perf_counter()
     asyncio.run(wait_n(n, max_delay))
-    end = time.time()
+    end = time.perf_counter()
     temps_total = end - start
     return temps_total / n
