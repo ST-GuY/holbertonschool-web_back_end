@@ -34,18 +34,7 @@ class Server:
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
 
-        # Charger le dataset si ce n'est pas déjà fait
-        if not hasattr(self, 'dataset') or self.__dataset is None:
-            with open("Popular_Baby_Names.csv") as f:
-                reader = csv.reader(f)
-                data = list(reader)
-                self.__dataset = data[1:]  # ignore l'en-tête
-
-        # Obtenir les indices de la page
         start, end = index_range(page, page_size)
 
-        # Sélectionner les lignes correspondant à la page
-        page_data = self.__dataset[start:end]
-
-        # Retourner la page
-        return page_data
+        dataset = self.dataset()
+        return dataset[start:end]
