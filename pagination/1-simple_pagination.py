@@ -5,9 +5,9 @@ from typing import List
 
 def index_range(page, page_size) -> tuple:
 
-    start = (page - 1) * page_size
-    end = start + page_size
-    return (start, end)
+    start_index = (page - 1) * page_size
+    end_index = start_index + page_size
+    return (start_index, end_index)
 
 
 class Server:
