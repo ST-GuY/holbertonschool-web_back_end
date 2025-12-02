@@ -1,0 +1,3 @@
+// list all documents in the school collection
+//forEache(printjson) affiche chaque document de maniere lisible
+db.school.find().forEach(printjson);
