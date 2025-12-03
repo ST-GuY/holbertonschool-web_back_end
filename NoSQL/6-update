@@ -1,4 +1,5 @@
 // adds a new attribute to a document in the collection school
+// $set permet d’ajouter ou modifier un champ sans toucher aux autres
 db.school.update(
 	{name: "Holberton school"},
-	{$set: {address: "972 Mission street"}}) //$set permet d’ajouter ou modifier un champ sans toucher aux autres
+	{$set: {address: "972 Mission street"}});
