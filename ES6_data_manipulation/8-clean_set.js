@@ -1,3 +1,3 @@
-export default function cleanSet () {
+export default function cleanSet (set, startString) {
 	
 }
