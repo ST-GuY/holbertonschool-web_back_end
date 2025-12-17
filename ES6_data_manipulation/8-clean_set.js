@@ -1,19 +1,22 @@
 export default function cleanSet(set, startString) {
-    // 1️⃣ Si startString est vide ou n'existe pas,
-    // on retourne une chaîne vide (comportement attendu par l'exercice)
-    if (!startString) {
+    // 1️⃣ Si startString n'est pas une string ou est vide → retourner ''
+    if (typeof startString !== 'string' || startString.length === 0) {
         return '';
     }
 
-    // 2️⃣ Convertir le Set en tableau pour pouvoir utiliser filter et map
+    // 2️⃣ Vérifier que toutes les valeurs du Set sont des strings
+    for (const value of set) {
+        if (typeof value !== 'string') {
+            return '';
+        }
+    }
+
+    // 3️⃣ Convertir le Set en tableau
     return Array.from(set)
-
-        // 3️⃣ Garder uniquement les valeurs qui commencent par startString
+        // Garder uniquement les valeurs qui commencent par startString
         .filter(value => value.startsWith(startString))
-
-        // 4️⃣ Pour chaque valeur filtrée, enlever startString du début
+        // Enlever startString du début
         .map(value => value.slice(startString.length))
-
-        // 5️⃣ Joindre tous les morceaux avec un tiret "-"
+        // Joindre avec "-"
         .join('-');
 }
