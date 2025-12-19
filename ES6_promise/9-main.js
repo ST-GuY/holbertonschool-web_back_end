@@ -1,4 +1,4 @@
-import guardrail from './8-try';
+import guardrail from './9-try';
 import divideFunction from './8-try';
 
 console.log(guardrail(() => { return divideFunction(10, 2)}));
