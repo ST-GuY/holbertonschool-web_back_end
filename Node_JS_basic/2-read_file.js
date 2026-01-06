@@ -4,7 +4,7 @@ const countStudents = (database) => {
     let csv;
     try {
         csv = fs.readFileSync(database, { encoding: 'utf-8' });
-    } catch {
+    } catch (err) {
         throw new Error('Cannot load the database');
     }
 
