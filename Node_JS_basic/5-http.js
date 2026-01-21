@@ -15,17 +15,23 @@ const countStudents = async (path) => {
     const students = lines.slice(1);
 
     const fields = {};
+
     students.forEach((line) => {
       const [firstname, , , field] = line.split(',');
+
       if (!fields[field]) {
         fields[field] = [];
       }
+
       fields[field].push(firstname);
     });
 
     let output = `Number of students: ${students.length}\n`;
+
     for (const field in fields) {
-      output += `Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}\n`;
+      if (Object.prototype.hasOwnProperty.call(fields, field)) {
+        output += `Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}\n`;
+      }
     }
 
     return output.trim();
@@ -43,6 +49,7 @@ const app = http.createServer(async (req, res) => {
   } else if (req.url === '/students') {
     res.statusCode = 200;
     res.write('This is the list of our students\n');
+
     try {
       const result = await countStudents(database);
       res.end(result);
